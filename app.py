@@ -19,12 +19,13 @@ load_dotenv()
 # os.environ['LANGCHAIN_API_KEY'] = os.getenv('LANGCHAIN_API_KEY')
 # os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
 # os.environ['HF_TOKEN'] = os.getenv('HF_TOKEN')
-HF_TOKEN = st.secrets["HF_TOKEN"]
-LANGCHAIN_API_KEY = st.secrets["HF_TOKEN"]
-GROQ_API_KEY = st.secrets["HF_TOKEN"]
-os.environ['LANGCHAIN_API_KEY'] = LANGCHAIN_API_KEY
-os.environ['GROQ_API_KEY'] = GROQ_API_KEY
-os.environ['HF_TOKEN'] = HF_TOKEN
+# HF_TOKEN = st.secrets["HF_TOKEN"]
+# LANGCHAIN_API_KEY = st.secrets["HF_TOKEN"]
+# GROQ_API_KEY = st.secrets["HF_TOKEN"]
+with st.sidebar:
+    os.environ['LANGCHAIN_API_KEY'] = st.text_input('Enter your LANGCHAIN API KEY')
+    os.environ['GROQ_API_KEY'] = st.text_input('Enter your GROQ API KEY')
+    os.environ['HF_TOKEN'] = st.text_input('Enter your HUGGINGFACE API KEY')
 
 os.environ['LANGCHAIN_PROJECT'] = 'NEW_RAG_WITH_HISTORY'
 os.environ['LANGCHAIN_TRACING_V2'] = 'true'
