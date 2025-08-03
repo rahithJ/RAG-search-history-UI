@@ -16,10 +16,17 @@ from langchain.chains.retrieval import create_retrieval_chain
 import os
 from dotenv import load_dotenv
 load_dotenv()
-os.environ['LANGCHAIN_API_KEY'] = st.secrets('LANGCHAIN_API_KEY')
-os.environ['GROQ_API_KEY'] = st.secrets('GROQ_API_KEY')
+# os.environ['LANGCHAIN_API_KEY'] = os.getenv('LANGCHAIN_API_KEY')
+# os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
+# os.environ['HF_TOKEN'] = os.getenv('HF_TOKEN')
+HF_TOKEN = st.secrets["HF_TOKEN"]
+LANGCHAIN_API_KEY = st.secrets["HF_TOKEN"]
+GROQ_API_KEY = st.secrets["HF_TOKEN"]
+os.environ['LANGCHAIN_API_KEY'] = LANGCHAIN_API_KEY
+os.environ['GROQ_API_KEY'] = GROQ_API_KEY
+os.environ['HF_TOKEN'] = HF_TOKEN
+
 os.environ['LANGCHAIN_PROJECT'] = 'NEW_RAG_WITH_HISTORY'
-os.environ['HF_TOKEN'] = st.secrets('HF_TOKEN')
 os.environ['LANGCHAIN_TRACING_V2'] = 'true'
 st.title('RAG WITH HISTORY SHOWN')
 """PDF Explorer by Rahith """
