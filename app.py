@@ -61,6 +61,12 @@ if uploaded_file:
     document.extend(raw_doc)
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
     split_document = text_splitter.split_documents(document)
+        if not raw_doc:
+        st.error('NO document found, try another Document')
+        st.stop()
+    if not split_document:
+        st.error('No document is for embedding')
+        st.stop()
 
     embeddings = HuggingFaceEmbeddings(model_name='all-MiniLM-L6-v2')
 
@@ -132,4 +138,5 @@ if uploaded_file:
         #     st.write("Chat: ",st.session_state.store.keys())
 
         #     st.write("Chat History: ",session_history)
+
 
