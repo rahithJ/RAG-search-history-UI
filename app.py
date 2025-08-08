@@ -56,7 +56,7 @@ if uploaded_file:
         file.write(uploaded_file.getvalue())
         file_name = uploaded_file.name
 
-    llm = ChatGroq(model='Gemma2-9b-It')
+    llm = ChatGroq(model='llama-3.3-70b-versatile')
     raw_doc = PyPDFLoader(tempfile).load()
     document.extend(raw_doc)
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
@@ -132,3 +132,4 @@ if uploaded_file:
         #     st.write("Chat: ",st.session_state.store.keys())
 
         #     st.write("Chat History: ",session_history)
+
