@@ -58,7 +58,7 @@ if uploaded_file:
 
     llm = ChatGroq(model='Gemma2-9b-It')
     raw_doc = PyPDFLoader(tempfile).load()
-    document.extend(raw_doc[:])
+    document.extend(raw_doc)
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
     split_document = text_splitter.split_documents(document)
 
