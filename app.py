@@ -42,7 +42,7 @@ if 'store' not in st.session_state:
 if 'message' not in st.session_state:
     st.session_state['message'] = [
         {'role':'Human','content':'Hey,What I can do here'},
-        {'role':'AI Assisstant',
+        {'role':'assistant',
         'content':'Hi, I am here to help you with the PDF that you have uploaded, ask anything about the PDF'}
     ]
 
@@ -124,10 +124,11 @@ if uploaded_file:
         st.session_state.message.append({'role':'Human','content':question})
         st.chat_message("human").write(question)
 
-        with st.chat_message("AI Assisstant"):
-            st.session_state.message.append({'role':'AI Assisstant','content':response['answer']})
+        with st.chat_message("assistant"):
+            st.session_state.message.append({'role':'assistant','content':response['answer']})
             st.write("Answer: ",response['answer'])
 
         # with st.sidebar:
         #     st.write("Chat: ",st.session_state.store.keys())
+
         #     st.write("Chat History: ",session_history)
