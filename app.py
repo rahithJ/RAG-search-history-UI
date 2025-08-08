@@ -61,7 +61,7 @@ if uploaded_file:
     document.extend(raw_doc)
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
     split_document = text_splitter.split_documents(document)
-        if not raw_doc:
+    if not raw_doc:
         st.error('NO document found, try another Document')
         st.stop()
     if not split_document:
@@ -138,5 +138,6 @@ if uploaded_file:
         #     st.write("Chat: ",st.session_state.store.keys())
 
         #     st.write("Chat History: ",session_history)
+
 
 
